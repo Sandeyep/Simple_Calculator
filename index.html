@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator-1</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: antiquewhite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #display{
+            border-radius: 16px;
+            width: 97%;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 3rem;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            height: 15vh;
+
+
+        }
+        .calculator{
+            padding: 15px;
+            background-color: hsl(0, 0%, 30%);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        #keys{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            padding: 22px;
+            gap: 18px;
+            
+        }
+           button{
+            border: none;
+            color: white;
+            background-color: rgb(28, 42, 14);
+            border-radius: 25px;
+            box-shadow: 10px 10px 5px rgba(255, 247, 247, 0.169);
+            width: 90%;
+            height: 10vh;
+            font-size: 3rem;
+        }
+        button:hover{
+            background-color: rgb(34, 15, 15);
+        }
+        button:active {
+            transform: translateY(4px);
+        }
+        .topic{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="topic">
+        <h3>Simple calculator using JavScript <a href="next.html">Click for Next</a></h3>
+        
+   
+    <div class="calculator">
+        
+        <input id="display" readonly>
+        <div id="keys">
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()">AC</button>
+            <button onclick="appendToDisplay('%')">%</button>
+            <button onclick="deleteLast()">DEL</button>
+        </div>
+    </div>
+</div>
+    
+    <script>
+        const display= document.getElementById("display");
+
+        function appendToDisplay(input){
+            display.value +=input;
+        }
+        function clearDisplay(){
+            display.value = "";
+        }
+
+        function calculate(){
+            try{
+                display.value= eval(display.value);
+            }catch (error){
+                display.value="Error";
+            }
+        }
+        function deleteLast() {
+            display.value = display.value.slice(0, -1);
+        }
+        
+    </script>
+</body>
+</html>
